@@ -7,7 +7,12 @@ This Distribution can work in offline mode as well and would not need to be conn
 Some of the Top Level Features are: 
 
 a) Register RPI for with a Digital Clinic
+
 b) Capture Patients Info (Scan & Link Aadhar Card as ID )
+
 c) Schedule Appointments & Real Time wait time projection.
+
 d) Generating Treatment History.
+
 e) e-prescriptions
+
