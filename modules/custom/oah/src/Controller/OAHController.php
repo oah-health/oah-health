@@ -1,14 +1,14 @@
 <?php
 /**
  *@file
- *Contains Drupal\oah\OAHController.
+ *Contains Drupal\oah\OahController.
  */
 namespace Drupal\oah\Controller;
 use Drupal\Core\Controller\ControllerBase;
 /**
  * Controller for the Signup form.
  */
- class OAHController extends ControllerBase{
+ class OahController extends ControllerBase{
    /**
     *{@inheritdoc}
     */

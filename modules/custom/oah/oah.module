@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 function oah_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the wiprocustom module.
+    // Main module help for the oah module.
     case 'help.page.oah':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
@@ -28,11 +28,27 @@ function oah_form_alter(array &$form, FormStateInterface $form_state, $form_id) 
   if ($form_id == 'user_register_form') {
 
     $form['#validate'][] = 'oah_signup_validate';
-    $form['account']['mail']['#default_value'] = t('oah.health@gmail.com');
+    $form['account']['mail']['#default_value'] = t('abc@abc.com');
     $form['account']['name']['#default_value'] = t('name placeholder');
     $form['account']['pass']['#required'] = FALSE;
 
     array_unshift($form['#validate'], 'oah_signup_validate');
+
+  }
+  if ($form_id == 'user_login_form') {
+
+    $form['#validate'][] = 'oah_login_validate';
+  //  $form['account']['mail']['#default_value'] = t('abc@abc.com');
+  //  $form['account']['name']['#default_value'] = t('name placeholder');
+    $form['name']['#title'] = "Mobile";
+    $form['pass']['#required'] = FALSE;
+    $form['pass']['#access'] = FALSE;
+    $form['actions']['submit']['#value'] = "Check In";
+    //print_r($form);
+
+    array_unshift($form['#validate'], 'oah_login_validate');
+    //print_r($form);
+    //kint($form);
 
   }
   if ($form_id == 'node_merci_reservation_form') {
@@ -47,7 +63,7 @@ function oah_form_alter(array &$form, FormStateInterface $form_state, $form_id) 
 /**
  * Implements Custom Reservation Handler.
  */
- function wiprocustom_reservation_validate($form, FormStateInterface $form_state){
+ function oah_reservation_validate($form, FormStateInterface $form_state){
    $account = \Drupal::currentUser();
    //print_r($account);
    $name = $account->getUsername();
@@ -62,8 +78,28 @@ function oah_signup_validate($form, FormStateInterface $form_state){
   $mobile = $form_state->getValue('field_mobile_no');
   $adhar = $form_state->getValue('field_adhar_card_number');
 
-  $form_state->setValue('mail',$mobile[0]['value'].'oah.health@gmail.com');
+  $form_state->setValue('mail',$mobile[0]['value'].'abc@abc.com');
   $form_state->setValue('name',$mobile[0]['value']);
   $form_state->setValue('pass',$mobile[0]['value']);
 
+}
+/**
+ * Implements Custom Login Validate Handler.
+ */
+function oah_login_validate($form, FormStateInterface $form_state){
+  //kint($form);
+  $mobile = $form_state->getValue('name');
+  //$adhar = $form_state->getValue('field_adhar_card_number');
+  print_r($mobile);
+  //$form_state->setValue('mail',$mobile[0]['value'].'abc@abc.com');
+  //$form_state->setValue('name',$mobile[0]['value']);
+  $form_state->setValue('pass',$mobile);
+  //kint($form_state);
+
+}
+/**
+ * Attaching the the library to all pages.
+ */
+function oah_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'oah/oah-custom';
 }

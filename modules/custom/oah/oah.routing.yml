@@ -1,7 +1,7 @@
 oah.signup:
   path: '/signup'
   defaults:
-    _controller:  Drupal\oah\Controller\OAHController::signup
+    _controller:  Drupal\oah\Controller\OahController::signup
     _title: 'Signup'
   requirements:
     _permission: 'access content'
