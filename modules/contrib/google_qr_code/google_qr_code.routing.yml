@@ -1,0 +1,7 @@
+googleqrcode.admin_settings:
+  path: 'admin/config/user-interface/google-qr-code'
+  defaults:
+    _form: '\Drupal\google_qr_code\Form\GoogleQRCodeAdminForm'
+    _title: 'Google QR Code Administrative Settings'
+  requirements:
+    _permission: 'administer modules'

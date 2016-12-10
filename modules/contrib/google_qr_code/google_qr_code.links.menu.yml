@@ -1,0 +1,6 @@
+googleqrcode.admin_settings:
+  title: 'Google QR Code Settings'
+  description: 'Control display of the google QR Code block(s)'
+  route_name: googleqrcode.admin_settings
+  parent: system.admin_config_ui
+  weight: 10

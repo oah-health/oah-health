@@ -1,0 +1,6 @@
+google-qr-code-js:
+  version: 1.x
+  js:
+    js/google.qrcode-execute.js: {}
+  dependencies:
+      - core/jquery

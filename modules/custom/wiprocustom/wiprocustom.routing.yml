@@ -1,0 +1,7 @@
+wiprocustom.signup:
+  path: '/signup'
+  defaults:
+    _controller:  Drupal\wiprocustom\Controller\WiproCustomController::signup
+    _title: 'Signup'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,5 @@
+name: wiprocustom
+type: module
+description: This module holds all the customisations.
+core: 8.x
+package: Custom

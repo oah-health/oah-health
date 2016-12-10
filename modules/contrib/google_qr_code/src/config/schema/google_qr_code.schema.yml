@@ -1,0 +1,13 @@
+google_qr_code.settings:
+  type: config_object
+  label: 'Google QR Code configuration'
+  mapping:
+    whenshow:
+      type: string
+      label: 'When to show google QR code'
+    height:
+      type: integer
+      label: 'Google QR code height'
+    width:
+      type: integer
+      label: 'Google QR code width'

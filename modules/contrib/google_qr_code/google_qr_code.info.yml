@@ -1,0 +1,14 @@
+name: Google QR Code
+description: A module that allows placing QR codes via the Google Charts API
+package: Other
+type: module
+# version: 1.0
+# core: 8.x
+configure: googleqrcode.GoogleQRCodeAdminForm
+
+
+# Information added by Drupal.org packaging script on 2016-10-06
+version: '8.x-1.1'
+core: '8.x'
+project: 'google_qr_code'
+datestamp: 1475736546
