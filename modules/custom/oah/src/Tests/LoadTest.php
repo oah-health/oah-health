@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\wiprocustom\Tests;
+namespace Drupal\oah\Tests;
 
 use Drupal\Core\Url;
 use Drupal\simpletest\WebTestBase;
@@ -8,7 +8,7 @@ use Drupal\simpletest\WebTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group wiprocustom
+ * @group oah
  */
 class LoadTest extends WebTestBase{
 
@@ -17,7 +17,7 @@ class LoadTest extends WebTestBase{
    *
    * @var array
    */
-  public static $modules = ['wiprocustom'];
+  public static $modules = ['oah'];
 
   /**
    * A user with permission to administer site configuration.

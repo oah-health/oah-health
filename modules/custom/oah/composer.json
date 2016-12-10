@@ -1,0 +1,14 @@
+{
+  "name": "drupal/oah",
+  "type": "drupal-module",
+  "description": "This module holds all the customisations",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/oah",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/oah",
+    "source": "http://cgit.drupalcode.org/oah"
+  },
+  "require": { }
+}

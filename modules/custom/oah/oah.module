@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains wiprocustom.module..
+ * Contains oah.module..
  */
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,10 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Implements hook_help().
  */
-function wiprocustom_help($route_name, RouteMatchInterface $route_match) {
+function oah_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the wiprocustom module.
-    case 'help.page.wiprocustom':
+    case 'help.page.oah':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('This module holds all the customisations') . '</p>';
@@ -24,20 +24,20 @@ function wiprocustom_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_form_alter().
  */
-function wiprocustom_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+function oah_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'user_register_form') {
 
-    $form['#validate'][] = 'wiprocustom_signup_validate';
-    $form['account']['mail']['#default_value'] = t('abc@abc.com');
+    $form['#validate'][] = 'oah_signup_validate';
+    $form['account']['mail']['#default_value'] = t('oah.health@gmail.com');
     $form['account']['name']['#default_value'] = t('name placeholder');
     $form['account']['pass']['#required'] = FALSE;
 
-    array_unshift($form['#validate'], 'wiprocustom_signup_validate');
+    array_unshift($form['#validate'], 'oah_signup_validate');
 
   }
   if ($form_id == 'node_merci_reservation_form') {
-      $form['#validate'][] = 'wiprocustom_reservation_validate';
-      array_unshift($form['#validate'], 'wiprocustom_signup_validate');
+      $form['#validate'][] = 'oah_reservation_validate';
+      array_unshift($form['#validate'], 'oah_signup_validate');
 
       //$form->setValue('title', Booking for );
 
@@ -57,12 +57,12 @@ function wiprocustom_form_alter(array &$form, FormStateInterface $form_state, $f
 /**
  * Implements Custom Validate Handler.
  */
-function wiprocustom_signup_validate($form, FormStateInterface $form_state){
+function oah_signup_validate($form, FormStateInterface $form_state){
 
   $mobile = $form_state->getValue('field_mobile_no');
   $adhar = $form_state->getValue('field_adhar_card_number');
 
-  $form_state->setValue('mail',$mobile[0]['value'].'abc@abc.com');
+  $form_state->setValue('mail',$mobile[0]['value'].'oah.health@gmail.com');
   $form_state->setValue('name',$mobile[0]['value']);
   $form_state->setValue('pass',$mobile[0]['value']);
 
