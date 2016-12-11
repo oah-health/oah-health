@@ -89,10 +89,32 @@ function oah_signup_validate($form, FormStateInterface $form_state){
 function oah_login_validate($form, FormStateInterface $form_state){
   //kint($form);
   $mobile = $form_state->getValue('name');
-  //$adhar = $form_state->getValue('field_adhar_card_number');
-  print_r($mobile);
-  //$form_state->setValue('mail',$mobile[0]['value'].'abc@abc.com');
-  //$form_state->setValue('name',$mobile[0]['value']);
+  $userloaded = user_load_by_name($mobile);
+
+  if($userloaded == FALSE){
+  //user creation if not exists.
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $user = \Drupal\user\Entity\User::create();
+
+  // Mandatory.
+  $user->setPassword("$mobile");
+  $user->enforceIsNew();
+  $user->setEmail("$mobile"."abc@abc.com");
+  $user->setUsername("$mobile");
+
+  // Optional.
+  $user->set('init', 'email');
+  $user->set('langcode', $language);
+  $user->set('preferred_langcode', $language);
+  $user->set('preferred_admin_langcode', $language);
+  //$user->addRole('authenticated');
+  $user->activate();
+
+  // Save user account.
+  $result = $user->save();
+}
+
+  //assign username as password.
   $form_state->setValue('pass',$mobile);
   //kint($form_state);
 

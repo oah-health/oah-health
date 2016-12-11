@@ -1,3 +1,6 @@
-a.create-account-link , a.request-password-link{
+#block-userlogin-2 ul{
   display:none;
+}
+button#edit-preview{
+display:none;
 }
