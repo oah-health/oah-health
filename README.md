@@ -1,11 +1,11 @@
 # OAH-Health
 [ A Drupal Distribution for Digital Healthcare]
 
-Digital Health care Distribution will be completely opensource solution that will be made available on drupal.org . 
+Any neighbourhood clinic/primary health center can be Digitally enabled using OAH-Health (a.k.a Digital Clinic).
+
+Digital Clinic Distribution will be completely opensource solution that will be made available on drupal.org . 
 This solution can be deployed on frugal open hardware like RaspberryPi. This Distribution will be vendor neutral .
 It can function in an offline/online mode. It would not need to be connect to internet always.
-
-Any neighbourhood clinic/primary health center can be Digitally enabled using OAH-Health.
 
 This distribution will enable :
 
